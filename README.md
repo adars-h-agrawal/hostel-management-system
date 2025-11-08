@@ -82,6 +82,12 @@ hostel_management/
 │   ├── guest_ids/
 │   └── maintenance/
 │
+├── screenshots/
+│   ├── guest_ids/
+│   ├── admin_dashboard.png
+│   ├── student_dashboard.png
+│   └── maintenance/
+│
 ├── hostel_management.sql
 ├── db_connection.php
 ├── index.php
@@ -146,21 +152,17 @@ python3 main.py
 
 ## 📸 Screenshots
 
-```
-dashboard.png
-maintenance.png
-mess.png
-notices.png
-ai-query.png
-```
+###  Home Page
+![Home Page](screenshots/home_page.png)
 
-```markdown
-![Dashboard](screenshots/dashboard.png)
-![Maintenance](screenshots/maintenance.png)
-![Mess](screenshots/mess.png)
-![Notices](screenshots/notices.png)
-![AI Query](screenshots/ai-query.png)
-```
+###  Admin Dashboard
+![Admin Dashboard](screenshots/admin_dashboard.png)
+
+###  Student Dashboard
+![Student Dashboard](screenshots/student_dashboard.png)
+
+###  AI Query
+![AI Query](screenshots/ai_query.png)
 
 ---
 
@@ -181,11 +183,11 @@ You may seed a demo admin/student in the DB for quick testing. Example:
 
 ---
 
-## 🧾 License
-This project is licensed under the **MIT License**.  
-Feel free to modify and improve it for educational or personal use.
+**Developed by Adarsh (MIT Manipal)** ✨  
+*Guided by curiosity, built with passion.*
 
 ---
 
-**Developed by Adarsh (MIT Manipal)** ✨  
-*Guided by curiosity, built with passion.*
+## 🧾 License
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
