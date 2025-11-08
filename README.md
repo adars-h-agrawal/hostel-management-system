@@ -1,113 +1,191 @@
-# 🏨 Hostel Management System  
+# 🏨 Hostel Management System
 
-## 📘 Overview  
-The **Hostel Management System** is a full-stack web application designed to simplify hostel operations for both students and administrators.  
-It enables students to manage maintenance requests, mess preferences, guest logs, notices, attendance, and fees — all from a single, elegant dashboard.  
+## 📘 Overview
+The **Hostel Management System** is a full-stack web application built to simplify hostel operations for both students and administrators.  
+It enables students to manage maintenance requests, mess preferences, guest logs, notices, attendance, and fee payments — all through a single, organized dashboard.
 
 ---
 
-## 🚀 Features  
+## 🚀 Features
 
-### 👩‍🎓 Student Portal  
-- View and update personal profile  
-- Submit maintenance requests with description & optional images  
+### 👩‍🎓 Student Portal
+- View and update personal profiles  
+- Submit maintenance requests with descriptions & optional images  
 - View hostel notices and announcements  
-- Check weekly mess menu, schedule, and provide feedback  
+- Check mess menus and provide weekly feedback  
 - Log guest entries and track visit history  
-- Track fee payments and unpaid dues  
-- Raise complaints or send feedback to hostel management  
+- View fee payment history and pending dues  
+- Raise complaints or send feedback directly to management  
 
-### 🛠️ Admin Portal *(for future updates)*  
-- Manage student records  
-- Approve/reject guest requests  
+### 🛠️ Admin Portal
+- Manage and update student records  
+- Approve or reject guest requests  
 - Post and manage hostel notices  
-- Track and resolve maintenance requests  
+- Monitor and resolve maintenance requests  
+- Generate invoices and reminders  
+- View mess, fee, and attendance analytics  
 
 ---
 
-## 🧩 Tech Stack  
+## 🧩 Tech Stack
 
 | Component | Technology |
-|------------|-------------|
-| **Frontend** | HTML5, CSS3, Tailwind CSS, JavaScript |
-| **Backend** | PHP, MySQL |
-| **Database** | MySQL (hostel_management) |
+|----------|------------|
+| **Frontend** | HTML5, CSS3, JavaScript, Tailwind CSS |
+| **Backend** | PHP |
+| **Database** | MySQL (`hostel_management`) |
 | **Local Server** | MAMP / XAMPP |
-| **AI Layer (optional)** | Flask + Ollama (for natural language queries) |
+| **AI Layer (Optional)** | Python (Flask + Ollama for NLP-based queries) |
 
 ---
 
-## 📂 Project Structure (Current Layout)
+## 📁 Project Structure
 
 ```
-Hostel-Management-System/
+hostel_management/
 │
-├── student-main_req.php
-├── student-maintenance.php
-├── student-mess.php
-├── student-guestlog.php
-├── student-notices.php
-├── student-guest.php
+├── admin/
+│   ├── includes/
+│   │   ├── auth_check.php
+│   │   ├── get_fee_payments.php
+│   │   ├── get_students.php
+│   │   └── set_semester_fee.php
+│   ├── admin-dashboard.php
+│   ├── admin-fees.php
+│   ├── admin-login.php
+│   └── ... (other admin modules)
 │
-├── student-maintenance.html
-├── student-mess.html
-├── student-notices.html
-├── student-guestlog.html
+├── ai_backend/
+│   ├── open_ai_experiment/
+│   │   └── main.py
+│   └── main.py
 │
-├── styles.css
-├── index.html
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── script.js
+│   └── images/
+│       ├── admin-bg.png
+│       ├── admin-dashboard.png
+│       ├── index-bg.png
+│       └── student-bg.png
+│
+├── student/
+│   ├── backend/
+│   │   └── complain_stud.php
+│   ├── student-dashboard.php
+│   ├── student-login.php
+│   └── ... (other student modules)
+│
+├── uploads/
+│   ├── guest_ids/
+│   └── maintenance/
+│
 ├── hostel_management.sql
-│
+├── db_connection.php
+├── index.php
+├── LICENSE
 └── README.md
 ```
 
 ---
 
-## ⚙️ Setup Instructions  
+## ⚙️ Setup Instructions
 
-### 1. Clone or Download the Project  
+### 1) Clone or Download the Repository
 ```bash
-git clone https://github.com/<your-username>/Hostel-Management-System.git
-cd Hostel-Management-System
+git clone https://github.com/adars-h-agrawal/hostel-management-system.git
+cd hostel-management-system
 ```
 
-### 2. Setup Local Server  
-- Place the project folder inside your MAMP or XAMPP `htdocs` directory.  
-- Start Apache and MySQL services.  
-- Import the `hostel_management.sql` file into phpMyAdmin.  
+### 2) Setup Local Server
+- Move the project folder into your **MAMP/XAMPP `htdocs`** directory.  
+- Start **Apache** and **MySQL** services.  
+- Import the `hostel_management.sql` file via **phpMyAdmin**.  
 
-### 3. Access the Application  
-Open your browser and go to:  
+### 3) Configure Database
+Edit `db_connection.php` with your local credentials:
+```php
+<?php
+$host = "localhost";
+$user = "root";       // change if needed
+$pass = "root";       // "" if blank (XAMPP default)
+$db   = "hostel_management";
+$port = 8889;         // MAMP default; use 3306 for XAMPP
+
+$conn = new mysqli($host, $user, $pass, $db, $port);
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+?>
 ```
-http://localhost/Hostel-Management-System/index.html
+
+### 4) Run the Application
+Open in your browser:
+```
+http://localhost/hostel-management-system/index.php
 ```
 
 ---
 
-## 🧠 AI Integration (Optional - for Advanced Use)  
-If you’re using the AI-based Flask layer:  
-- Ensure Ollama is installed locally.  
-- Run `main.py` to enable intelligent commands like *"Show unpaid fees"* or *"List maintenance issues this week"*.  
+## 🧠 AI Integration *(Optional)*
+The project includes an experimental **AI backend** using **Flask + Ollama**, enabling intelligent text/voice queries such as:  
+- “Show unpaid fees.”  
+- “List maintenance issues reported this week.”
+
+To enable it:
+```bash
+cd ai_backend/open_ai_experiment
+python3 main.py
+```
+
+> Ensure **Ollama** is installed and running locally with a supported model.
 
 ---
 
-## 📸 Screenshots (Optional)  
-Add screenshots in your GitHub repo for visual preview:  
+## 📸 Screenshots
+
 ```
-/screenshots/
-  ├── dashboard.png
-  ├── maintenance.png
-  ├── mess.png
-  └── notices.png
+dashboard.png
+maintenance.png
+mess.png
+notices.png
+ai-query.png
+```
+
+```markdown
+![Dashboard](screenshots/dashboard.png)
+![Maintenance](screenshots/maintenance.png)
+![Mess](screenshots/mess.png)
+![Notices](screenshots/notices.png)
+![AI Query](screenshots/ai-query.png)
 ```
 
 ---
 
-## 🧾 License  
+## 🧪 Test Users 
+You may seed a demo admin/student in the DB for quick testing. Example:
+- **Admin:** `admin@example.com` / `admin123`
+- **Student:** `s123@example.com` / `student123`
+
+> Update or remove these before production use.
+
+---
+
+## 🔐 Security Notes
+- Never commit real credentials or `.env` files.  
+- Sanitize inputs in all PHP endpoints (e.g., prepared statements).  
+- Validate file uploads and restrict allowed MIME types.  
+- Consider CSRF tokens for form submissions.
+
+---
+
+## 🧾 License
 This project is licensed under the **MIT License**.  
-Feel free to modify and improve it for educational or personal use.  
+Feel free to modify and improve it for educational or personal use.
 
 ---
 
-**Developed by Shivam (MIT Manipal)** ✨  
-*Guided by curiosity, built with passion.*  
+**Developed by Adarsh (MIT Manipal)** ✨  
+*Guided by curiosity, built with passion.*
