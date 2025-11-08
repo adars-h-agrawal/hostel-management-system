@@ -83,10 +83,10 @@ hostel_management/
 │   └── maintenance/
 │
 ├── screenshots/
-│   ├── guest_ids/
+│   ├── home_page.png
 │   ├── admin_dashboard.png
 │   ├── student_dashboard.png
-│   └── maintenance/
+│   └── ai_query.png
 │
 ├── hostel_management.sql
 ├── db_connection.php
