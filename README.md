@@ -136,7 +136,7 @@ The project includes an experimental **AI backend** using **Flask + Ollama**, en
 
 To enable it:
 ```bash
-cd ai_backend/open_ai_experiment
+cd ai_backend/
 python3 main.py
 ```
 
